@@ -8,6 +8,7 @@ interface RequestBody {
 export async function POST(request: Request) {
   const body: RequestBody = await request.json();
 
+  // create a new user
   const user = await prisma.user.create({
     data: {
       name: body.name,
@@ -16,6 +17,7 @@ export async function POST(request: Request) {
     },
   });
 
+  // send a new user to database
   const { password, ...result } = user;
 
   return new Response(JSON.stringify(result));
