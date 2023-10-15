@@ -6,6 +6,7 @@ import React from 'react';
 const Signinbutton = () => {
   // session is to check if the user is authenticated
   const { data: session } = useSession();
+  console.log(session?.user);
 
   // if user is authenticated
   if (session && session.user) {
